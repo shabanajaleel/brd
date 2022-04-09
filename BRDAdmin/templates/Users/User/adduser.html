@@ -1,0 +1,128 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="card-header">
+                    <h3 class="card-title">Add User</h3>
+                  </div>
+                  <div class="card-body">
+
+
+                    {% if form.errors %}
+                            <div class="col-lg-12 ">
+                                <div class="alert alert-dark alert-dismissible fade show" role="alert">
+                                    {% for field in form %}
+                                    <!-- For each error in field -->
+                                        {% for error  in field.errors %}
+                                    <!-- Output error text message only -->
+                                            <div class="text-danger">{{error}}</div>
+
+                                        {% endfor %}
+                                    {% endfor %}
+                                      
+                                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                </div>
+                            </div>
+                    {% endif %}
+
+
+
+                    <div class="row">
+
+                      <div class="col-md-6 col-lg-6">
+                            <div class="form-group">
+                            <label class="form-label">Name<span class="danger" style="color: red;"> *</span></label>
+                            {{form.first_name}}
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-6">
+                       
+                            <div class="form-group">
+                              <label class="form-label">Employee ID<span class="danger" style="color: red;"> *</span></label>
+                              {{form.employee_id}}
+                            </div>
+                        </div>
+
+                     
+                      <div class="col-md-6 col-lg-6">
+                         <div class="form-group">
+                          <label class="form-label">Password<span class="danger" style="color: red;"> *</span> </label>
+                          {{form.password1}}
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-6">
+                            <div class="form-group">
+                             <label class="form-label">Confirm Password<span class="danger" style="color: red;"> *</span> </label>
+                             {{form.password2}}
+                             </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label class="form-label">Email<span class="danger" style="color: red;"> *</span> </label>
+                                {{form.email}}
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label class="form-label">Role<span class="danger" style="color: red;"> *</span> </label>
+                                {{form.role}}
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label class="form-label">Phone<span class="danger" style="color: red;"> *</span> </label>
+                                {{form.phone}}
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label class="form-label">District<span class="danger" style="color: red;"> *</span> </label>
+                                {{form.district}}
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label class="form-label">User Type<span class="danger" style="color: red;"> *</span> </label>
+                                {{form.usertype}}
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label class="form-label">Target<span class="danger" style="color: red;"> *</span> </label>
+                                {{form.target}}
+                            </div>
+                        </div>
+                           
+                      
+                    </div>
+                    <div class="col-lg-12">
+                        <center><button class="btn btn-secondary  mt-5">Submit</button></center>
+                    </div>
+                    </div>
+                    </div>
+           
+        </form>
+        </div>
+        <div class="col-lg-1"></div>
+    </div>
+</div>
+
+
+{% endblock %}
